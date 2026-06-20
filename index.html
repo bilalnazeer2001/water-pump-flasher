@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water Pump Flasher</title>
+  <style>
+    body{font-family:system-ui,sans-serif;max-width:460px;margin:auto;padding:20px;
+         background:#f4f6f8;color:#222;text-align:center}
+    h1{color:#0a6;font-size:22px}
+    .card{background:#fff;border-radius:12px;padding:20px;margin:16px 0;
+          box-shadow:0 1px 4px rgba(0,0,0,.1);text-align:left}
+    ol{padding-left:20px;line-height:1.6}
+    esp-web-install-button{--esp-tools-button-color:#fff;
+          --esp-tools-button-background-color:#0a6}
+    .warn{background:#fff4e5;border-left:4px solid #f5a623;padding:10px;border-radius:6px;
+          font-size:14px}
+    code{background:#eee;padding:1px 5px;border-radius:4px}
+  </style>
+  <!-- ESP Web Tools: flashes ESP32 from the browser over WebSerial -->
+  <script type="module"
+    src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <h1>💧 Water Pump Controller</h1>
+  <p>Flash firmware straight from this page — no laptop needed.</p>
+
+  <div class="card">
+    <esp-web-install-button manifest="./manifest.json">
+      <button slot="activate">⚡ Connect &amp; Flash</button>
+      <span slot="unsupported">
+        Your browser can't flash. Use <b>Chrome or Edge</b> on a
+        <b>computer</b> or an <b>Android phone</b> (with a USB-OTG cable).
+      </span>
+      <span slot="not-allowed">Access to the serial port was blocked.</span>
+    </esp-web-install-button>
+  </div>
+
+  <div class="card">
+    <b>How to flash (Android phone):</b>
+    <ol>
+      <li>Connect the ESP32 to your phone with a <b>USB-OTG cable</b>.</li>
+      <li>Open this page in <b>Chrome</b>.</li>
+      <li>Tap <b>Connect &amp; Flash</b> and pick the USB serial device.</li>
+      <li>Wait for "flashing complete", then unplug.</li>
+    </ol>
+    <div class="warn">
+      This first flash erases everything and installs the partition layout.
+      Afterwards, all updates are wireless via the device's <b>WaterPump-Setup</b>
+      Wi-Fi (no cable). iPhones can't do USB flashing — use Android or a PC.
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:#888">
+    Powered by ESP Web Tools • Works in Chrome/Edge with WebSerial
+  </p>
+</body>
+</html>
